@@ -6,7 +6,6 @@ const path = require('path')
 const getAndStoreFatCat = require('./workers/getAndStoreFatCat')
 
 // TODO: Don't use this here. This is just to show it works with environmental variables
-getAndStoreFatCat();
 
 const port = process.env.PORT || 9000
 

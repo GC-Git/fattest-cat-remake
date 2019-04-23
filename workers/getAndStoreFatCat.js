@@ -1,3 +1,5 @@
+// THIS FILE IS MEANT TO BE RUN SEPARATELY VIA SCHEDULING
+require('dotenv').config({path:'../.env'})
 const getFatCat = require('./actions/getFatCat')
 const storeCatInMongo = require('./actions/storeCatInMongo')
 const uploadToCloudinary = require('./actions/uploadToCloudinary')
@@ -65,5 +67,4 @@ async function getAndStoreFatCat(){
     
 }
 
-module.exports = getAndStoreFatCat;
-
+getAndStoreFatCat();
