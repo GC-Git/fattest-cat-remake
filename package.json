@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "cloudinary": "^1.14.0",
+    "dayjs": "^1.8.12",
     "express": "^4.16.4",
     "mongoose": "^5.5.3",
     "osmosis": "^1.1.10"
