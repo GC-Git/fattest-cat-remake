@@ -11,8 +11,8 @@ async function storeCat(cat){
     console.log('FATCAT Worker: Getting new fat cat.')
 
     if(cat !== undefined){
-        // If the previous fat cat has a different name, upload the new cats image to cloudinary, otherwise we'll just use the old image
-        fattestCat.img = fattestCat.name === cat.name ? fattestCat.img = cat.img : await uploadToCloudinary(fattestCat.img)
+        // If the previous fat cat has a different id, upload the new cats image to cloudinary, otherwise we'll just use the old image
+        fattestCat.img = fattestCat.id === cat.id ? fattestCat.img = cat.img : await uploadToCloudinary(fattestCat.img)
     } else {
         // This code is in case no cat exists in the database. We'll just upload the image to cloudinary, considering there ARE no cats.
         fattestCat.img = await uploadToCloudinary(fattestCat.img)
@@ -49,7 +49,7 @@ async function getAndStoreFatCat(){
 
                 if(today.isBefore(storedCatDate, 'day')){
                     // This should never occur. We should never save cats to the FUTURE
-                    console.log("You have time travelled. Good luck traveller.")
+                    throw new Error('Latest cat stored is from the future.')
                 } else if(storedCatDate.isBefore(today, 'day')){
                     // This code will run if we haven't stored a cat in the DB today. 
                     storeCat(cat);

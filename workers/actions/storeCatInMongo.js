@@ -11,10 +11,11 @@ async function storeCatInMongo(cat, database = process.env.MONGODB_URI || 'mongo
 
     // Type checking
     if(!typeof cat === 'object'){throw new Error("Arg is not an object.")}
+    if(!typeof cat.id === 'number'){throw new Error("cat.id is wrong type")}
     if(!typeof cat.name === 'string'){throw new Error("cat.name is wrong type")}
     if(!typeof cat.weight === 'number'){throw new Error("cat.weight is wrong type")}
     if(!typeof cat.date === 'object'){throw new Error("cat.date is wrong type")} 
-    if(!typeof cat.img === 'string'){throw new Error("cat.img is wrong type")} 
+    if(!typeof cat.img === 'string'){throw new Error("cat.img is wrong type")}
     else if(!cat.img.match(regex)){throw new Error('cat.img is not a url')}
 
 
@@ -28,6 +29,7 @@ async function storeCatInMongo(cat, database = process.env.MONGODB_URI || 'mongo
 
         // TODO: Add dates and date comparisons
         var newCat = new Cat({
+            id: cat.id,
             name: cat.name,
             weight: cat.weight,
             img: cat.img,
