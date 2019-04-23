@@ -27,7 +27,6 @@ async function storeCatInMongo(cat, database = process.env.MONGODB_URI || 'mongo
     db.on('error', console.error.bind(console, 'connection error:'));
     await db.once('open', function(){
 
-        // TODO: Add dates and date comparisons
         var newCat = new Cat({
             id: cat.id,
             name: cat.name,
