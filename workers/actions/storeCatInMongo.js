@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
-const CatSchema = require('../../schemas/Cat')
+const Cat = require('../../schemas/Cat')
 const dayjs = require('dayjs')
 
 // TODO: We want ot make sure we put the cat in the right table too when we pass in a url
-async function storeCatInMongo(cat, database='mongodb://localhost/fatcat'){
+async function storeCatInMongo(cat, database = process.env.MONGODB_URI || 'mongodb://localhost/fatcats'){
 
     // We'll use this to check if cat.img is a url
     var urlExpression = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
@@ -25,7 +25,6 @@ async function storeCatInMongo(cat, database='mongodb://localhost/fatcat'){
 
     db.on('error', console.error.bind(console, 'connection error:'));
     await db.once('open', function(){
-        var Cat = mongoose.model('Cat', CatSchema)
 
         // TODO: Add dates and date comparisons
         var newCat = new Cat({

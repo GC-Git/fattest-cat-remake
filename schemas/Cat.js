@@ -1,9 +1,11 @@
 const mongoose = require('mongoose')
 
 // Cat Schema
-module.exports = new mongoose.Schema({
+let CatSchema = new mongoose.Schema({
     name: String,
     weight: Number,
     img: String,
     date: Object
 })
+
+module.exports = mongoose.model('Cat', CatSchema)
