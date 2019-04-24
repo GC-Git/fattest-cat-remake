@@ -33,7 +33,7 @@ app.get('/api/fatcat', (req, res)=>{
         db.on('error', console.error.bind(console, 'connection error:'))
         db.once('open', function(){
             Cat.findOne().sort({ date: -1 }).limit(1).exec((err, cat)=>{
-                res.send(JSON.stringify(cat))
+                res.send(cat)
             })
         })
     } catch(err){
