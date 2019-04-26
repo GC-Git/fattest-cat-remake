@@ -4,7 +4,12 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const path = require('path')
 const mongoose = require('mongoose')
-const Cat = require('./schemas/Cat')
+
+// Schemas
+const CatSchema = require('./schemas/Cat')
+
+let Cat = mongoose.model('Cat', CatSchema)
+let FatCat = mongoose.model('FatCat', CatSchema)
 
 const port = process.env.PORT || 9000
 
@@ -32,7 +37,7 @@ app.get('/api/fatcat', (req, res)=>{
 
         db.on('error', console.error.bind(console, 'connection error:'))
         db.once('open', function(){
-            Cat.findOne().sort({ date: -1 }).limit(1).exec((err, cat)=>{
+            FatCat.findOne().sort({ date: -1 }).limit(1).exec((err, cat)=>{
                 res.send(cat)
             })
         })
@@ -40,6 +45,7 @@ app.get('/api/fatcat', (req, res)=>{
         console.error(err)
     }
 })
+
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
