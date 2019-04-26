@@ -34,7 +34,7 @@ class App extends Component {
 function Cat(props){
   return (
     <div>
-      <h1>{props.cat.name}</h1>
+      <h1><a href={"https://www.oregonhumane.org/adopt/details/"+ props.cat.id +"/"}>{props.cat.name}</a></h1>
       <p>{props.cat.weight} lbs</p>
       <img src={props.cat.img} alt="Beautiful cat."/>
     </div>
