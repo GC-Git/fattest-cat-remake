@@ -1,32 +1,20 @@
 // THIS FILE IS MEANT TO BE RUN SEPARATELY VIA SCHEDULING
 require('dotenv').config({path:'../.env'})
+const mongoose = require('mongoose')
+const dayjs = require('dayjs')
+
+// Actions
 const getFatCat = require('./actions/getFatCat')
 const storeCatInMongo = require('./actions/storeCatInMongo')
 const uploadToCloudinary = require('./actions/uploadToCloudinary')
-const mongoose = require('mongoose')
-const Cat = require('../schemas/Cat')
-const dayjs = require('dayjs')
+const getCats = require('./actions/getCats')
 
-// TODO: I had to separate out this function due to its async nature. Unsure if there is another cleaner way to do this.
-async function storeCat(cat){
-    let fattestCat = await getFatCat();
-    console.log('FATCAT Worker: Getting new fat cat.')
+// Schemas
+const CatSchema = require('../schemas/Cat')
 
-    if(cat !== undefined){
-        // If the previous fat cat has a different id, upload the new cats image to cloudinary, otherwise we'll just use the old image
-        fattestCat.img = fattestCat.id === cat.id ? fattestCat.img = cat.img : await uploadToCloudinary(fattestCat.img)
-    } else {
-        // This code is in case no cat exists in the database. We'll just upload the image to cloudinary, considering there ARE no cats.
-        fattestCat.img = await uploadToCloudinary(fattestCat.img)
-    }
+let Cat = mongoose.model('Cat', CatSchema)
+let FatCat = mongoose.model('FatCat', CatSchema)
 
-    // Now we store todays fat cat into the database
-    storeCatInMongo(fattestCat, process.env.MONGODB_URI) 
-    .then(()=>{
-        console.log('FATCAT Worker: New cat saved in database.')
-        // process.exit(1)
-    })
-}
 
 async function getAndStoreFatCat(){
     try {
@@ -39,9 +27,10 @@ async function getAndStoreFatCat(){
         db.on('error', console.error.bind(console, 'connection error:'));
 
         await db.once('open', function(){
-            Cat.findOne().sort({ date: -1 }).limit(1).exec((err, cat)=>{
+            FatCat.findOne().sort({ date: -1 }).limit(1).exec((err, cat)=>{
                 
                 if(cat === null){
+                    // If cat is equal to null, we don't have ANY cats in the DB
                     storeCat()
                     return
                 }
@@ -66,5 +55,33 @@ async function getAndStoreFatCat(){
     }
     
 }
+
+
+// TODO: I had to separate out this function due to its async nature. Unsure if there is another cleaner way to do this.
+async function storeCat(cat){
+    
+    let cats = await getCats()
+    let fattestCat = await getFatCat(cats);
+
+    console.log('FATCAT Worker: Getting new fat cat.')
+
+    if(cat !== undefined){
+        // If the previous fat cat has a different id, upload the new cats image to cloudinary, otherwise we'll just use the old image
+        fattestCat.img = fattestCat.id === cat.id ? fattestCat.img = cat.img : await uploadToCloudinary(fattestCat.img)
+    } else {
+        // This code is in case no cat exists in the database. We'll just upload the image to cloudinary, considering there ARE no cats.
+        fattestCat.img = await uploadToCloudinary(fattestCat.img)
+    }
+
+    // Now we store todays fat cat into the database
+    storeCatInMongo(fattestCat, process.env.MONGODB_URI, cats)
+    .then(()=>{
+        console.log('FATCAT Worker: New cat saved in database.')
+        // process.exit(1)
+    })
+}
+
+
+// START PROGRAM
 
 getAndStoreFatCat();

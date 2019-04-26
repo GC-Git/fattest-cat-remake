@@ -9,4 +9,4 @@ let CatSchema = new mongoose.Schema({
     date: Object
 })
 
-module.exports = mongoose.model('Cat', CatSchema)
+module.exports = CatSchema

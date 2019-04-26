@@ -1,10 +1,12 @@
 const mongoose = require('mongoose')
-const Cat = require('../../schemas/Cat')
+const CatSchema = require('../../schemas/Cat') 
 const dayjs = require('dayjs')
 
-// TODO: We want ot make sure we put the cat in the right table too when we pass in a url
-async function storeCatInMongo(cat, database = process.env.MONGODB_URI || 'mongodb://localhost/fatcats'){
+let Cat = mongoose.model('Cat', CatSchema)
+let FatCat = mongoose.model('FatCat', CatSchema)
 
+
+function checkType(cat){
     // We'll use this to check if cat.img is a url
     var urlExpression = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
     var regex = new RegExp(urlExpression);
@@ -17,8 +19,10 @@ async function storeCatInMongo(cat, database = process.env.MONGODB_URI || 'mongo
     if(!typeof cat.date === 'object'){throw new Error("cat.date is wrong type")} 
     if(!typeof cat.img === 'string'){throw new Error("cat.img is wrong type")}
     else if(!cat.img.match(regex)){throw new Error('cat.img is not a url')}
+}
 
 
+async function storeCatInMongo(fatCat, database = process.env.MONGODB_URI || 'mongodb://localhost/fatcats', cats=null,){
 
     mongoose.connect(database, {useNewUrlParser: true});
 
@@ -27,17 +31,38 @@ async function storeCatInMongo(cat, database = process.env.MONGODB_URI || 'mongo
     db.on('error', console.error.bind(console, 'connection error:'));
     await db.once('open', function(){
 
-        var newCat = new Cat({
-            id: cat.id,
-            name: cat.name,
-            weight: cat.weight,
-            img: cat.img,
+        checkType(fatCat)
+
+        // Store the fattest cat
+        var newFatCat = new FatCat({
+            id: fatCat.id,
+            name: fatCat.name,
+            weight: fatCat.weight,
+            img: fatCat.img,
             date: dayjs()
         })
 
-        newCat.save(function(err, newCat){
+        newFatCat.save(function(err, newCat){
             if(err) return console.error(err);
         })
+
+        if(cats){
+            for(let i=0; i<cats.length-1; i++){
+                checkType(cats[i])
+                
+                var newCat = new Cat({
+                    id: cats[i].id,
+                    name: cats[i].name,
+                    weight: cats[i].weight,
+                    img: cats[i].img,
+                    date: dayjs()
+                })
+
+                newCat.save(function(err, newCat){
+                    if(err) return console.error(err)
+                })
+            }
+        }
     })
 }
 
