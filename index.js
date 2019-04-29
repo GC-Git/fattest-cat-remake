@@ -56,39 +56,79 @@ app.get('/api/fatcat', (req, res)=>{
     }
 })
 
+app.get('/api/fatcat/:date', (req, res)=>{
+    try{
+        if(!dayjs(req.params.date).isValid()){
+            res.send('Invalid date')
+            return;
+        }
+    
+        let requestedDate = dayjs(req.params.date).valueOf()
+        const startOfDay = dayjs(requestedDate).startOf('day').valueOf()
+        const endOfDay = dayjs(requestedDate).endOf('day').valueOf()
+
+
+        mongoose.connect(database, {useNewUrlParser: true});
+        let db = mongoose.connection
+
+    
+        db.on('error', console.error.bind(console, 'connection error:'))
+        db.once('open', function(){    
+            
+            FatCat.find({
+                date: {
+                    $lt: endOfDay,
+                    $gte: startOfDay
+                }
+            })
+                .limit(1)
+                .exec((err, cats) => {
+                    console.log(typeof cats[0])
+                    res.send(cats[0] ? cats[0] : "No cat for this day.")
+                    db.close()
+                })
+            
+        })
+    } catch(err){
+        console.error(err)
+    }
+})
 
 
 // Gets all the cats for a particular date
 app.get('/api/cats/:date', (req, res) => {
-    if(!dayjs(req.params.date).isValid()){
-        res.send('Invalid date')
-        return;
-    }
+    try{
+        if(!dayjs(req.params.date).isValid()){
+            res.send('Invalid date')
+            return;
+        }
 
-    let requestedDate = dayjs(req.params.date).valueOf()
-    const startOfDay = dayjs(requestedDate).startOf('day').valueOf()
-    const endOfDay = dayjs(requestedDate).endOf('day').valueOf()
+        let requestedDate = dayjs(req.params.date).valueOf()
+        const startOfDay = dayjs(requestedDate).startOf('day').valueOf()
+        const endOfDay = dayjs(requestedDate).endOf('day').valueOf()
 
-    mongoose.connect(database, {useNewUrlParser: true});
-    let db = mongoose.connection
-    
-    db.on('error', console.error.bind(console, 'connection error:'))
-    db.once('open', function(){    
+        mongoose.connect(database, {useNewUrlParser: true});
+        let db = mongoose.connection
         
-        Cat.find({
-            date: {
-                $lt: endOfDay,
-                $gte: startOfDay
-            }
-        })
-            .limit(50)
-            .exec((err, cats) => {
-                res.send(cats)
-                db.close()
+        db.on('error', console.error.bind(console, 'connection error:'))
+        db.once('open', function(){    
+            
+            Cat.find({
+                date: {
+                    $lt: endOfDay,
+                    $gte: startOfDay
+                }
             })
-        
-    })
-
+                .limit(50)
+                .exec((err, cats) => {
+                    res.send(cats)
+                    db.close()
+                })
+            
+        })
+    } catch(err){
+        console.error(err)
+    }
 })
 
 
