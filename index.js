@@ -49,7 +49,10 @@ app.get('/api/fatcat', (req, res)=>{
         db.once('open', function(){
             FatCat.findOne().sort({ date: -1 }).limit(1).exec((err, cat)=>{
                 res.send(cat)
+                db.close()
+                return
             })
+            return
         })
     } catch(err){
         console.error(err)
@@ -86,8 +89,9 @@ app.get('/api/fatcat/:date', (req, res)=>{
                     console.log(typeof cats[0])
                     res.send(cats[0] ? cats[0] : "No cat for this day.")
                     db.close()
+                    return
                 })
-            
+            return
         })
     } catch(err){
         console.error(err)
@@ -123,8 +127,9 @@ app.get('/api/cats/:date', (req, res) => {
                 .exec((err, cats) => {
                     res.send(cats)
                     db.close()
+                    return
                 })
-            
+            return
         })
     } catch(err){
         console.error(err)

@@ -1,4 +1,22 @@
 import React, { Component } from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import NavBar from './components/NavBar'
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import deepOrange from '@material-ui/core/colors/deepOrange';
+import Cat from './components/Cat'
+import Fetcher from './components/Fetcher'
+import TodaysCats from './components/TodaysCats'
+import Grid from '@material-ui/core/Grid'
+
+const theme = createMuiTheme({
+  palette: {
+    primary: deepOrange,
+    secondary: {
+      main: '#f44336',
+    },
+  },
+});
+
 
 class App extends Component {
 
@@ -6,12 +24,11 @@ class App extends Component {
     super(props)
     this.state = {
       isFetching: true,
-      cat: null
+      cat: null,
     }
   }
 
   componentDidMount(){
-    console.log("COMPONENTDIDMOUNT CALLED")
     fetch('/api/fatcat')
       .then(response => response.json())
       .then((cat) => {
@@ -20,25 +37,28 @@ class App extends Component {
   }
 
   render() {
-
-    console.log("RENDER CALLED")
-
     return (
-      <div className="App">
-        {this.state.isFetching ? <h2>Fetching cat</h2> : <Cat cat={this.state.cat} />}
-      </div>
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+        <NavBar />
+        <Grid container spacing={0}>
+          <Grid item md={6}>
+            <Fetcher url="/api/fatcat" propName="cat">
+              <Cat />
+            </Fetcher>  
+          </Grid>
+          <Grid item md={6}>
+            <Fetcher url="/api/cats" propName="cats">
+              <TodaysCats />
+            </Fetcher>
+          </Grid>
+        </Grid>
+        
+        
+      </MuiThemeProvider>
     );
   }
 }
 
-function Cat(props){
-  return (
-    <div>
-      <h1><a href={"https://www.oregonhumane.org/adopt/details/"+ props.cat.id +"/"}>{props.cat.name}</a></h1>
-      <p>{props.cat.weight} lbs</p>
-      <img src={props.cat.img} alt="Beautiful cat."/>
-    </div>
-  )
-}
 
 export default App;
