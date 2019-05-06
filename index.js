@@ -171,6 +171,7 @@ app.get('/api/cats/range/:dateStart/:dateEnd', (req, res) => {
         
         // db.on('error', console.error.bind(console, 'connection error:'))
         db.once('open', function(){    
+
             Cat.find({
                 date: {
                     $lt: endDate,
@@ -178,7 +179,7 @@ app.get('/api/cats/range/:dateStart/:dateEnd', (req, res) => {
                 }
             })
 
-                .limit(50)
+                .limit(1500)
                 .exec((err, cats) => {
 
                     // Set all dates to the beggining of the day
