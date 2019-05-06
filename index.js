@@ -7,6 +7,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const path = require('path')
 const dayjs = require('dayjs')
+const sortObjArrByProp = require('./helpers/sortObjArrByProp')
 
 // Database Connection
 const mongoose = require('mongoose')
@@ -31,6 +32,10 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 //           ROUTES
 // ===========================
 
+
+
+
+
 // NOTE: Put all API endpoints under '/api'
 app.get('/api/hello', (req, res) => {
     res.send('Hello world!')
@@ -40,16 +45,19 @@ app.get('/api/hello', (req, res) => {
 
 
 app.get('/api/fatcat', (req, res)=>{
+    console.log('Getting /api/fatcat')
     try{
+
         // TODO: Figure out if we should be creating a new connection every time someone calls the route.
         mongoose.connect(database, {useNewUrlParser: true});
         let db = mongoose.connection
 
-        db.on('error', console.error.bind(console, 'connection error:'))
+
+        //TODO: Why does this cause an event listener leak???      db.on('error', console.error.bind(console, 'connection error:'))
         db.once('open', function(){
             FatCat.findOne().sort({ date: -1 }).limit(1).exec((err, cat)=>{
                 res.send(cat)
-                db.close()
+                mongoose.disconnect()                
                 return
             })
             return
@@ -60,7 +68,10 @@ app.get('/api/fatcat', (req, res)=>{
 })
 
 app.get('/api/fatcat/:date', (req, res)=>{
+    console.log('Getting /api/fatcat/:date')
+
     try{
+
         if(!dayjs(req.params.date).isValid()){
             res.send('Invalid date')
             return;
@@ -75,7 +86,7 @@ app.get('/api/fatcat/:date', (req, res)=>{
         let db = mongoose.connection
 
     
-        db.on('error', console.error.bind(console, 'connection error:'))
+        // db.on('error', console.error.bind(console, 'connection error:'))
         db.once('open', function(){    
             
             FatCat.find({
@@ -88,7 +99,7 @@ app.get('/api/fatcat/:date', (req, res)=>{
                 .exec((err, cats) => {
                     console.log(typeof cats[0])
                     res.send(cats[0] ? cats[0] : "No cat for this day.")
-                    db.close()
+                    mongoose.disconnect()                    
                     return
                 })
             return
@@ -100,7 +111,8 @@ app.get('/api/fatcat/:date', (req, res)=>{
 
 
 // Gets all the cats for a particular date
-app.get('/api/cats/:date', (req, res) => {
+app.get('/api/cats/day/:date', (req, res) => {
+    console.log('Getting /api/cats/day/:date')
     try{
         if(!dayjs(req.params.date).isValid()){
             res.send('Invalid date')
@@ -114,7 +126,7 @@ app.get('/api/cats/:date', (req, res) => {
         mongoose.connect(database, {useNewUrlParser: true});
         let db = mongoose.connection
         
-        db.on('error', console.error.bind(console, 'connection error:'))
+        // db.on('error', console.error.bind(console, 'connection error:'))
         db.once('open', function(){    
             
             Cat.find({
@@ -126,24 +138,81 @@ app.get('/api/cats/:date', (req, res) => {
                 .limit(50)
                 .exec((err, cats) => {
                     res.send(cats)
-                    db.close()
+                    mongoose.disconnect()
                     return
                 })
             return
         })
     } catch(err){
+        console.log("ERROR GETTING /api/cats/:date")
         console.error(err)
     }
 })
 
+// Gets all the cats for a particular date range
+app.get('/api/cats/range/:dateStart/:dateEnd', (req, res) => {
+    console.log('Getting /api/cats/range/:dateStart/:dateEnd')
 
+    try{
+        if(!dayjs(req.params.date).isValid()){
+            res.send('Invalid date')
+            return;
+        }
 
-// Reroutes to todays date, getting all the cats for today
-app.get('/api/cats', (req, res)=>{
-    res.redirect('/api/cats/'+dayjs().format('MM-DD-YYYY'));
+        const startDate = dayjs(req.params.dateStart).startOf('day').valueOf()
+        const endDate = dayjs(req.params.dateEnd).startOf('day').valueOf()
+
+        if(startDate > endDate){
+            res.send('Start date cannot come after end date.')
+        }
+        
+        mongoose.connect(database, {useNewUrlParser: true});
+        let db = mongoose.connection
+        
+        // db.on('error', console.error.bind(console, 'connection error:'))
+        db.once('open', function(){    
+            Cat.find({
+                date: {
+                    $lt: endDate,
+                    $gte: startDate
+                }
+            })
+
+                .limit(50)
+                .exec((err, cats) => {
+
+                    // Set all dates to the beggining of the day
+                    for(cat of cats) {
+                        cat.date = dayjs(cat.date).startOf('day').valueOf();
+                    }
+
+                    let sortedCatsArray = sortObjArrByProp(cats, 'date')
+                    
+                    res.send(sortedCatsArray)
+                    mongoose.disconnect()
+                    return
+                })
+            return
+        })
+    } catch(err){
+        console.log("ERROR GETTING /api/cats/:dateStart/:dateEnd")
+        console.error(err)
+    }
 })
 
+// Reroutes to todays date, getting all the cats for today
+app.get('/api/cats/today', (req, res)=>{
+    console.log('Getting /api/cats/today')
+    res.redirect('/api/cats/day/'+dayjs().format('MM-DD-YYYY'));
+})
 
+// Get cats for the last week
+app.get('/api/cats/week', (req, res) => {
+    console.log('Getting /api/cats/week')
+    let today = dayjs().format('MM-DD-YYYY')
+    let startDate = dayjs().subtract(7, 'day').format('MM-DD-YYYY')
+    res.redirect('/api/cats/range/'+startDate+'/'+today)
+})
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
@@ -155,3 +224,4 @@ app.get('/', (req, res) => {
 
 
 app.listen(port);
+console.log('Listening on port: ' + port)

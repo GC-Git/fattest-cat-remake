@@ -6,6 +6,7 @@ import deepOrange from '@material-ui/core/colors/deepOrange';
 import Cat from './components/Cat'
 import Fetcher from './components/Fetcher'
 import TodaysCats from './components/TodaysCats'
+import CatRechart from './components/CatRechart'
 import Grid from '@material-ui/core/Grid'
 
 const theme = createMuiTheme({
@@ -19,23 +20,6 @@ const theme = createMuiTheme({
 
 
 class App extends Component {
-
-  constructor(props){
-    super(props)
-    this.state = {
-      isFetching: true,
-      cat: null,
-    }
-  }
-
-  componentDidMount(){
-    fetch('/api/fatcat')
-      .then(response => response.json())
-      .then((cat) => {
-        this.setState({cat, isFetching: false})
-      })
-  }
-
   render() {
     return (
       <MuiThemeProvider theme={theme}>
@@ -49,7 +33,8 @@ class App extends Component {
           </Grid>
           <Grid item md={6}>
             <Fetcher url="/api/cats" propName="cats">
-              <TodaysCats />
+              {/* <TodaysCats /> */}
+              <CatRechart />
             </Fetcher>
           </Grid>
         </Grid>

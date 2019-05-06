@@ -36,11 +36,11 @@ class TodaysCats extends React.Component {
             datasets: [
                 {
                     label: 'Cat Weight',
-                    backgroundColor: 'rgba(255,99,132,0.2)',
-                    borderColor: 'rgba(255,99,132,1)',
+                    backgroundColor: 'rgba(255, 88, 38,0.2)',
+                    borderColor: 'rgba(255, 88, 38,1)',
                     borderWidth: 1,
-                    hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                    hoverBorderColor: 'rgba(255,99,132,1)',
+                    hoverBackgroundColor: 'rgba(255,88 , 38,0.4)',
+                    hoverBorderColor: 'rgba(255, 88, 38, 1)',
                     data: catWeights
                 }
             ]
