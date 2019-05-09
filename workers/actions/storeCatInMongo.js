@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
-const CatSchema = require('../../schemas/Cat') 
 const dayjs = require('dayjs')
 
-let Cat = mongoose.model('Cat', CatSchema)
-let FatCat = mongoose.model('FatCat', CatSchema)
+// TODO: ADJUST THESE TO MVC
+let Cat = require('../../models/Cat')
+let FatCat = require('../../models/FatCat')
 
 
 function checkType(cat){

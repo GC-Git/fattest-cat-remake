@@ -9,11 +9,9 @@ const storeCatInMongo = require('./actions/storeCatInMongo')
 const uploadToCloudinary = require('./actions/uploadToCloudinary')
 const getCats = require('./actions/getCats')
 
-// Schemas
-const CatSchema = require('../schemas/Cat')
-
-let Cat = mongoose.model('Cat', CatSchema)
-let FatCat = mongoose.model('FatCat', CatSchema)
+// Models
+let Cat = require('../models/Cat')
+let FatCat = require('../models/FatCat')
 
 
 async function getAndStoreFatCat(){
