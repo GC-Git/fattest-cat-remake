@@ -31,7 +31,7 @@ app.get('/api/fatcat/:date', controllers.fatCatDate)
 app.get('/api/fatcat/range/:dateStart/:dateEnd', controllers.fatCatDateRange)
 app.get('/api/cats/day/:date', controllers.catsDate)
 app.get('/api/cats/range/:dateStart/:dateEnd', controllers.catsDateRange)
-app.get('/api/cats/today', controllers.catsToday)
+app.get('/api/cats', controllers.catsToday)
 app.get('/api/cats/week', controllers.catsThisWeek)
 
 // The "catchall" handler: for any request that doesn't match the one above, send back React's index.html file where it will do its own in app routing
