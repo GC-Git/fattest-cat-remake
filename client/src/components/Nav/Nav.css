@@ -111,6 +111,18 @@
     .nav__burger {
         transform: scale(0.5);
     }
+
+    .sidenav a {
+        font-size: 14px;
+    }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 5px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
 }
 
 @media (max-width: 150px) { 
