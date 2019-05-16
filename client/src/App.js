@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav } from './components'
+import { Nav, Hero } from './components'
 
 import './global.css'
 
@@ -8,6 +8,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Nav />
+        <Hero />
       </React.Fragment>
     );
   }

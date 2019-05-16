@@ -1,0 +1,163 @@
+
+.hero__hero {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5vh;
+}
+
+.hero__cat-logo {
+    align-self: center;
+    animation: shake 0.5s; 
+}
+
+@keyframes shake {
+    0% { transform: translate(-100px, 0px) rotate(0deg); }
+    10% { transform: translate(-90px, 0px) rotate(-2deg); }
+    20% { transform: translate(-80px, 0px) rotate(2deg); }
+    30% { transform: translate(-70px, 0px) rotate(0deg); }
+    40% { transform: translate(-60px, 0px) rotate(2deg); }
+    50% { transform: translate(-50px, 0px) rotate(-2deg); }
+    60% { transform: translate(-40px, 0px) rotate(0deg); }
+    70% { transform: translate(-30px, 0px) rotate(-2deg); }
+    80% { transform: translate(-20px, 0px) rotate(2deg); }
+    90% { transform: translate(-10px, 0px) rotate(0deg); }
+    100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+.hero__header,
+.hero__sub-header {
+    font-family: 'Raleway';
+    color: #594949;    
+    /* text-align: center; */
+    align-self: center;
+}
+
+.hero__header {
+    font-weight: 600;
+}
+
+.hero__sub-header {
+
+}
+
+/* Very tiny things like watches? */
+@media (min-width: 0px) { 
+    .hero__hero {
+        padding-top: 1vh;        
+    }
+
+    .hero__header {
+        font-weight: 600;
+        font-size: 14px;
+        margin: 20px 0 0 0;
+        text-align: center;
+    }
+    
+    .hero__sub-header {
+        display: none;
+    }
+    .hero__cat-logo {
+        width: 60vw;
+    }
+}
+
+/* Very small phones */
+@media (min-width: 150px) { 
+    .hero__hero {
+        padding-top: 3vh;        
+    }
+
+    .hero__header {
+        font-weight: 600;
+        font-size: 14px;
+        margin: 20px 0 0 0;
+        text-align: center;
+    }
+
+    .hero__cat-logo {
+        width: 60vw;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 300px) { 
+    .hero__header {
+        font-weight: 600;
+        font-size: 20px;
+        margin: 20px 0 0 0;
+    }
+    
+    .hero__sub-header {
+        display: initial;
+        font-size: 12px;
+        margin: 18px 0 0 0;
+    }
+    .hero__cat-logo {
+        width: 40vw;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+    .hero__header {
+        font-weight: 600;
+        font-size: 28px;
+        margin: 20px 0 0 0;
+    }
+    
+    .hero__sub-header {
+        font-size: 16px;
+        margin: 18px 0 0 0;
+    }
+    .hero__cat-logo {
+        width: 30vw;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .hero__header {
+        font-weight: 600;
+        font-size: 32px;
+        margin: 30px 0 0 0;
+    }
+    
+    .hero__sub-header {
+        font-size: 18px;
+        margin: 18px 0 0 0;
+    }
+    .hero__cat-logo {
+        width: 20vw;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .hero__header {
+        font-weight: 600;
+        font-size: 37px;
+        margin: 30px 0 0 0;
+    }
+    
+    .hero__sub-header {
+        font-size: 20px;
+        margin: 19px 0 0 0;
+    }
+    .hero__cat-logo {
+        width: 17vw;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    .hero__header {
+        font-weight: 600;
+        font-size: 42px;
+        margin: 30px 0 0 0;
+    }
+    
+    .hero__sub-header {
+        font-size: 22px;
+        margin: 20px 0 0 0;
+    }
+}
