@@ -32,6 +32,10 @@
     align-self: center;
 }
 
+.hero__scroller {
+    align-self: center;
+}
+
 .hero__header {
     font-weight: 600;
 }
@@ -59,6 +63,10 @@
     .hero__cat-logo {
         width: 60vw;
     }
+
+    .hero__scroller {
+        display: none;
+    }
 }
 
 /* Very small phones */
@@ -77,6 +85,12 @@
     .hero__cat-logo {
         width: 60vw;
     }
+    .hero__scroller {
+        display: initial;
+        width: 40px;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -89,7 +103,7 @@
     
     .hero__sub-header {
         display: initial;
-        font-size: 12px;
+        font-size: 14px;
         margin: 18px 0 0 0;
     }
     .hero__cat-logo {

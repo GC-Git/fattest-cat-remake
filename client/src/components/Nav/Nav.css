@@ -1,6 +1,8 @@
 .nav__title {
     color: #594949;
     font-family: 'Roboto-700', sans-serif;
+    margin-block-start: 0.0em;
+    margin-block-end: 0.0em;
 }
 
 .nav__nav {
