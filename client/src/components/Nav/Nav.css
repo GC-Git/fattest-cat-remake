@@ -1,0 +1,198 @@
+.nav__title {
+    color: #594949;
+    font-family: 'Roboto-700', sans-serif;
+}
+
+.nav__nav {
+    height:100%;
+    display:flex;
+    align-items: center;
+}
+
+.nav__links-desktop {
+    list-style: none;
+    margin: 1em 0 0 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav__links-desktop a {
+    text-decoration: none;
+    font-family: 'Roboto-700', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #948181;
+    padding-left: 6vw;
+}
+
+.nav__links-desktop a:hover,
+.nav__links-desktop a:visited {
+    color: #615454
+}
+
+.spacer {
+    flex: 1;
+}
+
+
+
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #5E6B73;
+    overflow-x: hidden;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+  }
+
+
+  .sidenav a {
+    padding: 8px 8px 15vh 32px;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    color: #D3E6F2;
+    transition: 0.3s;
+    text-align: center;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 575.99px) { 
+    .nav__title {
+        font-size: 20px;
+    }
+
+    .nav__title-logo-desktop {
+        height: 15px;
+        padding: 0 0 22px 0;
+    }
+
+    .nav__links-desktop {
+        display: none;
+    }
+
+    .nav__burger {
+        transform: scale(0.75);
+    }
+}
+
+
+
+
+@media (max-width: 300px) { 
+    .nav__title {
+        font-size: 15px;
+    }
+
+    .nav__title-logo-desktop {
+        height: 12px;
+        padding: 0 0 17px 0;
+    }
+
+    .nav__burger {
+        transform: scale(0.5);
+    }
+}
+
+@media (max-width: 150px) { 
+    .nav__title {
+        display: none;
+    }
+
+    .nav__title-logo-desktop {
+        height: 17.5px;
+        padding: 5px;
+    }
+
+    .nav__burger {
+        transform: scale(0.5);
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+    .nav__title {
+        font-size: 25px;
+    }
+
+    .nav__title-logo-desktop {
+        height: 20px;
+        padding: 0 0 30px 0;
+    }
+
+    .nav__links-desktop {
+        display: show;
+    }
+
+    .nav__burger{
+        display:none;
+    }
+
+    /* .nav__burger {
+        display: show;
+    } */
+
+}
+
+/* Special query to hide the burger menu */
+@media (min-width: 576px){
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .nav__title {
+        font-size: 30px;
+    }
+
+    .nav__title-logo-desktop {
+        height: 22px;
+        padding: 0 0 34px 0;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .nav__title {
+        font-size: 35px;
+    }
+
+    .nav__title-logo-desktop {
+        height: 28px;
+        padding: 0 0 37px 1px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    .nav__title {
+        font-size: 40px;
+    }
+
+    .nav__title-logo-desktop {
+        height: 30px;
+        padding: 0 0 40px 2px;
+    }
+}
