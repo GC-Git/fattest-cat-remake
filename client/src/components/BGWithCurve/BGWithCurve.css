@@ -31,9 +31,7 @@
 }
 
 #bgwithcurve__background {
-    height: 100vh;
     position: relative;
-    /* top: 10px; */
     bottom: 1px;
     border: 10px solid #5e6b73;
     background-color: #5e6b73;
