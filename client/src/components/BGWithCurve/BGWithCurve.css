@@ -1,0 +1,40 @@
+#bgwithcurve__container {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+#bgwithcurve__bottomCurvePath,
+#bgwithcurve__topCurvePath {
+    fill: #5e6b73;
+    stroke: #5e6b73;
+    stroke-width: 12px;
+}
+
+#bgwithcurve__bottomCurveSvg,
+#bgwithcurve__topCurveSvg {
+    display: block;
+}
+
+#bgwithcurve__bottomCurveSvg {
+    position: relative;
+    display: block;
+    top: -2px;
+}
+
+#bgwithcurve__content {
+    font-family: "Roboto-600", sans-serif;
+    margin: 5vw;
+}
+
+#bgwithcurve__background {
+    height: 100vh;
+    position: relative;
+    /* top: 10px; */
+    bottom: 1px;
+    border: 10px solid #5e6b73;
+    background-color: #5e6b73;
+    width: 100%;
+}

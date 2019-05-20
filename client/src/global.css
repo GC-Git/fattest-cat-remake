@@ -1,4 +1,5 @@
 body {
     color: #FBFBF8;
     margin: 5vw;
+    overflow-x: hidden;
 }
