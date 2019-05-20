@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, Hero, BGWithCurve } from './components'
+import { Nav, Hero, BGWithCurve, InfoCard } from './components'
 
 import './global.css'
 
@@ -11,8 +11,9 @@ class App extends Component {
         <Nav />
         <Hero />
         <BGWithCurve>
-          <h1> STUFF GOES HERE </h1>
-          <p>Oh look more stuff.</p>
+          <InfoCard>
+            <p>The caption goes here!</p>
+          </InfoCard>
         </BGWithCurve>
       </React.Fragment>
     );
