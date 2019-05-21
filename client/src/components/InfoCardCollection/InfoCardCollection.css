@@ -1,0 +1,46 @@
+.infocardcollection__infocardcollection {
+    padding-top: '2em';
+}
+
+/* Very tiny things like watches? */
+@media (min-width: 0px) {
+    .infocardcollection__infocardcollection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Very small phones */
+@media (min-width: 150px) { 
+
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 300px) { 
+
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .infocardcollection__infocardcollection {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+}

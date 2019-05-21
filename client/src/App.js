@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Nav, Hero, BGWithCurve, InfoCard } from './components'
+import { Nav, Hero, BGWithCurve, InfoCard, InfoCardCollection } from './components'
 
 import './global.css'
+
 
 class App extends Component {
   render() {
@@ -11,9 +12,13 @@ class App extends Component {
         <Nav />
         <Hero />
         <BGWithCurve>
-          <InfoCard>
-            <p>The caption goes here!</p>
-          </InfoCard>
+          <InfoCardCollection />>
+          <p style={{
+            fontSize: "35px",
+            alignText: "center"
+          }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
         </BGWithCurve>
       </React.Fragment>
     );

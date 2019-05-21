@@ -37,7 +37,5 @@ app.get('/api/cats/week', controllers.catsThisWeek)
 // The "catchall" handler: for any request that doesn't match the one above, send back React's index.html file where it will do its own in app routing
 app.get('/', controllers.index);
   
-
-
 app.listen(port);
 console.log('Listening on port: ' + port)
