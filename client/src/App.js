@@ -1,43 +1,65 @@
 import React, { Component } from 'react';
-import { Nav, Hero, BGWithCurve, InfoCard, InfoCardCollection, Testimonial } from './components'
-
+import { Nav } from './components'
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Pages from './pages'
 import './global.css'
 
 
 class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      links: [
+        {
+          path: "/",
+          name: "Home",
+          component: Pages.Home
+        },
+        {
+          path: "/about",
+          name: "About",
+          component: Pages.About
+        },
+        {
+          path: "/donate",
+          name: "Donate",
+          component: Pages.Donate
+        },
+        {
+          // We cant use API for this page, as the actual api uses it
+          path: "/developers",
+          name: "API",
+          component: Pages.Api
+        }
+      ]
+    }
+  }
+
   render() {
 
     return (
-      <React.Fragment>
-        <Nav />
-        <Hero />
-        <BGWithCurve>
-          <InfoCardCollection />
-          <p style={{
-            fontSize: "28px",
-            alignText: "center",
-            margin: "1.5em 1.5em 2.5em 1.5em"
-          }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </BGWithCurve>
-        <Testimonial 
-          image={require('./components/Testimonial/user_02.png')}
-          quote="Possibly the most pointless website I have ever made."
-          author="Gordon Delfel"
-        />  
-        <Testimonial 
-          reverse="true"
-          image={require('./components/Testimonial/user_01.png')}
-          quote="MEOW MEOW MEOW MOEW MEOW MEOW MOW MOWWWWWW"
-          author="A stray cat"
-        />
-        <Testimonial 
-          image={require('./components/Testimonial/user_03.png')}
-          quote="No thank you, I don't have any change."
-          author="Some stranger"
-        />  
-      </React.Fragment>
+      <Router>
+        <Nav links={this.state.links}/>
+        {this.state.links.forEach((value)=>{
+          if(value.path === "/"){
+            return (
+              <Route exact path={value.path} component={value.component} />
+            )
+          } else {
+            return (
+              <Route path={value.path} component={value.component} />
+            )
+          }
+        })}
+
+
+
+        
+        { this.state.links.map((item, index)=> (
+          <Route path={item.path} component={item.component} />
+        ))}
+        
+      </Router>
     );
   }
 }
