@@ -37,3 +37,22 @@
     background-color: #5e6b73;
     width: 100%;
 }
+
+/* Handles an issue with the bottom curve where the content section would clip into the curve image on small screen sizes. */
+@media (min-height: 600px) {
+
+    @media (max-width: 800px) { 
+        #bgwithcurve__bottomCurveSvg {
+            top: -0.5vh;
+        }
+    }
+
+    @media (max-width: 300px) { 
+        #bgwithcurve__bottomCurveSvg {
+            top: -0.25vh;
+        }
+    }
+
+
+}
+

@@ -14,8 +14,9 @@ class App extends Component {
         <BGWithCurve>
           <InfoCardCollection />
           <p style={{
-            fontSize: "35px",
-            alignText: "center"
+            fontSize: "28px",
+            alignText: "center",
+            margin: "1.5em 1.5em 2.5em 1.5em"
           }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
