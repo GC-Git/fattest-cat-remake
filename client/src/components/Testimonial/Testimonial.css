@@ -1,0 +1,132 @@
+
+/* Very tiny things like watches? */
+@media (min-width: 0px) { 
+    .testimonial__testimonial {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1em;
+    }
+    
+    .testimonial__image {
+        width: 90vw;
+    }
+    
+    .testimonial__quote {
+        font-family: 'Roboto Slab', serif;
+        font-weight: bold;
+        color: #594949;
+
+        padding: 2px;
+        margin: 1em;
+        width: 100%;
+        font-size: 10px;
+    }
+    
+    .testimonial__author {
+        font-family: 'Quicksand', sans-serif;
+        color:#594949
+    }
+
+}
+
+/* Very small phones */
+@media (min-width: 150px) { 
+    .testimonial__testimonial {
+        width: 90vw;
+    }
+    
+    .testimonial__image-reverse,
+    .testimonial__image {
+        width: 90vw;
+    }
+    
+    .testimonial__quote {
+        margin: 1em;
+        width: 100%;
+        font-size: 14px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 300px) { 
+    .testimonial__testimonial {
+        width: 75vw;
+        flex-direction: row;
+        margin-bottom: 1em;
+    }
+
+    .testimonial__reverse {
+        flex-direction: row-reverse;
+        text-align: right;
+        float: right;
+    }
+    
+    .testimonial__image {
+        max-width: 30vw;
+        max-height: 30vw;
+        width: auto;
+        height: auto;
+    }
+    
+    .testimonial__quote {
+        margin: auto 1em auto 1em;
+        font-size: 14px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {     
+    .testimonial__image {
+        max-width: 30vw;
+        max-height: 30vw;
+    }
+    
+    .testimonial__quote {
+        font-size: 20px;
+    }
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .testimonial__image {
+        max-width: 25vw;
+        max-height: 25vw;
+    }
+    
+    .testimonial__quote {
+        font-size: 23px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .testimonial__testimonial {
+        max-width: 60vw;
+    }
+
+    .testimonial__image {
+        max-width: 20vw;
+        max-height: 20vw;
+    }
+    
+    .testimonial__quote {
+        font-size: 23px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    .testimonial__testimonial {
+        max-width: 60vw;
+    }
+
+    .testimonial__image {
+        max-width: 15vw;
+        max-height: 15vw;
+    }
+    
+    .testimonial__quote {
+        font-size: 23px;
+    }
+}
