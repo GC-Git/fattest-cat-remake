@@ -6,6 +6,7 @@
 
     .apiPage__endpoint_list_item {
         list-style: none;
+        padding-top: 0.25em;
     }    
 
     .apiPage__header {
@@ -19,7 +20,7 @@
     }
 
     .apiPage__container {
-        margin-top: 10vh;
+        margin-top: 5vh;
         margin-bottom: 10vh;
         display:flex;
         flex-direction: column;
