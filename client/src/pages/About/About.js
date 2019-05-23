@@ -8,8 +8,8 @@ export default class About extends React.Component {
                 <Hero 
                 title="Locally sourced obese cats"
                 subtitle="Ethical entertainment for a modern era."
-                image={require("../../components/Hero/CatLogo.png")}
-                scroller={require('../../components/Hero/Scroll@2x.png')}
+                image={require("../../assets/heroImage.png")}
+                scroller={require('../../assets/heroScroller.png')}
                 />
 
                 <BGWithCurve>
