@@ -55,7 +55,7 @@ export default class Nav extends React.Component {
                 <div id="nav__burger-menu" className="nav__burger-menu sidenav">
                     <a href="javascript:void(0)" className="closebtn" onClick={this.closeNav}>&times;</a>
                     { this.props.links.map((item, index)=> (
-                        <Link to={item.path}>{item.name}</Link>
+                        <Link onClick={this.closeNav} to={item.path}>{item.name}</Link>
                     ))}
                 </div>
                 <ul className="nav__links-desktop">
