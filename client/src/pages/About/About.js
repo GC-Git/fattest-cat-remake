@@ -5,7 +5,13 @@ export default class About extends React.Component {
     render(){
         return (
             <React.Fragment>
-                <Hero />
+                <Hero 
+                title="Locally sourced obese cats"
+                subtitle="Ethical entertainment for a modern era."
+                image={require("../../components/Hero/CatLogo.png")}
+                scroller={require('../../components/Hero/Scroll@2x.png')}
+                />
+
                 <BGWithCurve>
                 <InfoCardCollection />
                 <p style={{

@@ -1,14 +1,45 @@
 import React from 'react'
-
+import PropTypes from 'prop-types'
 import './Hero.css'
 
-export default function Hero(props){
-    return (
-        <div className="hero__hero">
-            <img className="hero__cat-logo" src={require('./CatLogo.png')} alt="A beautiful fat cat." />
-            <h2 className="hero__header">Locally sourced obese cats</h2>
-            <p className="hero__sub-header">Ethical entertainment for a modern era.</p>
-            <img className="hero__scroller" src={require('./Scroll@2x.png')} alt="Indicates the page can be scrolled." />
-        </div>
-    )
+// <Hero image={} title={} subtitle={} scroller={} />
+
+export default class Hero extends React.Component {
+    render(){
+        return (
+            <div className="hero__hero">
+                {/* Conditionally render the passed in props. */}
+
+                { this.props.image ? 
+                <img className="hero__cat-logo" src={this.props.image} alt="A beautiful fat cat." /> 
+                : null }
+
+                { this.props.title ? 
+                <h2 className="hero__header">{this.props.title}</h2>
+                : null }
+                
+                { this.props.subtitle ?
+                <p className="hero__sub-header">{this.props.subtitle}</p> 
+                : null }
+
+                { this.props.scroller ?
+                <img className="hero__scroller" src={this.props.scroller} alt="Indicates the page can be scrolled." /> 
+                : null}
+                
+            </div>
+        )
+    }
+    
+}
+
+Hero.propTypes = {
+    image: PropTypes.string,
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    scroller: PropTypes.string
+}
+
+Hero.defaultProps = {
+    title: "Hero Title",
+    subtitle: "Hero subtitle."
 }
