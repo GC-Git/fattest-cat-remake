@@ -41,9 +41,19 @@ class App extends Component {
       <Router>
         
         <Nav links={this.state.links}/>  
-        { this.state.links.map((item, index)=> (
-          <Route path={item.path} component={item.component} />
-        ))}
+        { 
+          this.state.links.map((item, index)=> {
+            if(item.path ==="/"){return (
+              <Route exact path={item.path} component={item.component} />
+            )}
+
+            return (
+              <Route path={item.path} component={item.component} />
+            )
+          })
+
+        }
+        
         
       </Router>
     );
