@@ -6,7 +6,11 @@ export default class Api extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <h1>Api</h1>
+                <Hero 
+                title="API"
+                subtitle="For developers"
+                />
+
                 <BGWithCurve>
                     <p style={{
 
