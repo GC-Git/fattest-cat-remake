@@ -39,22 +39,8 @@ class App extends Component {
 
     return (
       <Router>
-        <Nav links={this.state.links}/>
-        {this.state.links.forEach((value)=>{
-          if(value.path === "/"){
-            return (
-              <Route exact path={value.path} component={value.component} />
-            )
-          } else {
-            return (
-              <Route path={value.path} component={value.component} />
-            )
-          }
-        })}
-
-
-
         
+        <Nav links={this.state.links}/>  
         { this.state.links.map((item, index)=> (
           <Route path={item.path} component={item.component} />
         ))}

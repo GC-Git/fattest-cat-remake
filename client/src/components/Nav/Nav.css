@@ -88,9 +88,6 @@
         padding: 0 0 22px 0;
     }
 
-    .nav__links-desktop {
-        display: none;
-    }
 
     .nav__burger {
         transform: scale(0.75);
@@ -153,13 +150,6 @@
         padding: 0 0 30px 0;
     }
 
-    .nav__links-desktop {
-        display: show;
-    }
-
-    .nav__burger{
-        display:none;
-    }
 
     /* .nav__burger {
         display: show;
@@ -167,13 +157,9 @@
 
 }
 
-/* Special query to hide the burger menu */
-@media (min-width: 576px){
-
-}
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { 
+@media (min-width: 768.99px) { 
     .nav__title {
         font-size: 30px;
     }
@@ -181,6 +167,20 @@
     .nav__title-logo-desktop {
         height: 22px;
         padding: 0 0 34px 0;
+    }
+    
+    .nav__links-desktop {
+        display: show;
+    }
+
+    .nav__burger{
+        display:none;
+    }
+}
+
+@media (max-width: 768px){
+    .nav__links-desktop {
+        display: none;
     }
 }
 
