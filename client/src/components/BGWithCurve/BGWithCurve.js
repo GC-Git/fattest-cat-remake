@@ -9,7 +9,7 @@ export default class BGWithCurve extends React.Component {
 
 
         return(
-            <div id="bgwithcurve__container">
+            <div id="bgwithcurve__bgwithcurve">
                 {/* Svg with top curve */}
 
                 {/* TODO: Oh gurl */}

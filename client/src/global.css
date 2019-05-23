@@ -3,3 +3,18 @@ body {
     margin: 5vw;
     overflow-x: hidden;
 }
+
+h1 {
+    font-family: 'Roboto-700', sans-serif;
+    color: #594949;
+}
+
+.hero__hero {
+    font-family: 'Raleway', sans-serif;
+    color: #594949;    
+}
+
+#bgwithcurve__content {
+    font-family: "Roboto", sans-serif;
+    color: #D3E6F2;
+}

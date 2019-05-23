@@ -28,9 +28,7 @@
 }
 
 .hero__header,
-.hero__sub-header {
-    font-family: 'Raleway';
-    color: #594949;    
+.hero__sub-header { 
     /* text-align: center; */
     align-self: center;
 }
@@ -43,9 +41,6 @@
     font-weight: 600;
 }
 
-.hero__sub-header {
-
-}
 
 /* Very tiny things like watches? */
 @media (min-width: 0px) { 

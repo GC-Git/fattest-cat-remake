@@ -1,11 +1,12 @@
 import React from 'react'
 import { Hero, BGWithCurve, InfoCardCollection, Testimonial } from "../../components"
+// import './About.css'
 
 export default class About extends React.Component {
     render(){
         return (
             <React.Fragment>
-                <Hero 
+                <Hero
                 title="Locally sourced obese cats"
                 subtitle="Ethical entertainment for a modern era."
                 image={require("../../assets/heroImage.png")}

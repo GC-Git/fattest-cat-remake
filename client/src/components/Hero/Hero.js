@@ -7,7 +7,7 @@ import './Hero.css'
 export default class Hero extends React.Component {
     render(){
         return (
-            <div className="hero__hero">
+            <div className="hero__hero ">
                 {/* Conditionally render the passed in props. */}
 
                 { this.props.image ? 

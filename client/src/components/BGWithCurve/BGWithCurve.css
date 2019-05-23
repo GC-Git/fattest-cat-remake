@@ -1,4 +1,4 @@
-#bgwithcurve__container {
+#bgwithcurve__bgwithcurve {
     width: 100vw;
     position: relative;
     left: 50%;
@@ -24,12 +24,6 @@
     top: -1vh;
 }
 
-#bgwithcurve__content {
-    font-family: "Roboto", sans-serif;
-    color: #D3E6F2;
-    margin: 5vw;
-}
-
 #bgwithcurve__background {
     position: relative;
     bottom: 1px;
@@ -37,6 +31,8 @@
     background-color: #5e6b73;
     width: 100%;
 }
+
+
 
 /* Handles an issue with the bottom curve where the content section would clip into the curve image on small screen sizes. */
 @media (min-height: 600px) {

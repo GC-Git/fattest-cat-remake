@@ -1,4 +1,76 @@
-h1 {
-    font-family: 'Roboto-700', sans-serif;
-    color: #594949;
+/* Very tiny things like watches? */
+@media (min-width: 0px) { 
+    .apiPage__list {
+        padding-left: 0;
+    }
+
+    .apiPage__endpoint_list_item {
+        list-style: none;
+    }    
+
+    .apiPage__header {
+        font-size: 12px;
+    }
+
+    .apiPage__endpoint_link {
+        text-decoration: none;
+        color: inherit;
+        font-size: 10pt;
+    }
+
+    .apiPage__container {
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+        display:flex;
+        flex-direction: column;
+    }
+}
+
+/* Very small phones */
+@media (min-width: 150px) { 
+    .apiPage__header {
+        font-size: 14px;
+    }
+
+    .apiPage__endpoint_link {
+        font-size: 12pt;
+    }
+
+    .apiPage__container {
+        align-items: center;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 300px) { 
+    .apiPage__header {
+        font-size: 18px;
+    }
+
+    .apiPage__endpoint_link {
+        font-size: 14pt;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .apiPage__header {
+        font-size: 20px;
+    }
+
+    .apiPage__endpoint_link {
+        font-size: 14pt;
+    }
+}
+
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    .apiPage__header {
+        font-size: 24px;
+    }
+
+    .apiPage__endpoint_link {
+        font-size: 18pt;
+    }
 }
