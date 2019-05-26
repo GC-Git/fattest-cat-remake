@@ -3,7 +3,7 @@ import './BGWithCurve.css'
 
 export default class BGWithCurve extends React.Component {
     render() {
-        let actualInnerWidth = document.body.scrollWidth
+        // let actualInnerWidth = document.body.scrollWidth
 
         // alert(document.documentElement.clientHeight + " " + actualInnerWidth + " " + window.innerWidth + " " + window.width)
 

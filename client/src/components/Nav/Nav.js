@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 import './Nav.css'
 
 class Burger extends React.Component {
-    constructor(props){
-        super(props)
-    }
 
     render(){
         let divStyle = {
@@ -53,6 +50,7 @@ export default class Nav extends React.Component {
                 <div className="spacer" />
                 <Burger onClick={this.openNav} className="nav__burger"/>
                 <div id="nav__burger-menu" className="nav__burger-menu sidenav">
+                     {/* eslint-disable-next-line */}
                     <a href="javascript:void(0)" className="closebtn" onClick={this.closeNav}>&times;</a>
                     { this.props.links.map((item, index)=> (
                         <Link onClick={this.closeNav} to={item.path}>{item.name}</Link>

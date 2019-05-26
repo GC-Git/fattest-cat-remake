@@ -6,5 +6,8 @@ import BGWithCurve from './BGWithCurve/BGWithCurve'
 import InfoCard from './InfoCard/InfoCard'
 import InfoCardCollection from './InfoCardCollection/InfoCardCollection'
 import Testimonial from './Testimonial/Testimonial'
+import Fetcher from './Fetcher/Fetcher'
+import TodaysCat from './TodaysCat/TodaysCat'
+import PortraitCircle from './PortraitCircle/PortraitCircle'
 
-export { Nav, Hero, BGWithCurve, InfoCard, InfoCardCollection, Testimonial }
+export { Nav, Hero, BGWithCurve, InfoCard, InfoCardCollection, Testimonial, Fetcher, TodaysCat, PortraitCircle }

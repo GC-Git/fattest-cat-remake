@@ -1,5 +1,5 @@
 import React from 'react'
-import { Hero, BGWithCurve, InfoCardCollection, Testimonial } from "../../components"
+// import { Hero, BGWithCurve, InfoCardCollection, Testimonial } from "../../components"
 
 export default class Donate extends React.Component {
     render() {

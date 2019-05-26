@@ -11,7 +11,7 @@ export default class InfoCard extends React.Component {
             >
                 <div className="infocard__image-wrapper">
                     {/* Image */}
-                    <img className="infocard__image" src={this.props.img} />
+                    <img className="infocard__image" src={this.props.img} alt="Something to catch the eye."/>
                     {/* Label */}
                     <p className="infocard__image-label">{this.props.label}</p>
                 </div>
