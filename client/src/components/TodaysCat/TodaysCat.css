@@ -1,4 +1,79 @@
-.todayscat__portrait {
-    width: 100px;
-    height: 100px;
+
+/* Very tiny things like watches? */
+@media (min-width: 0px) { 
+    .todayscat__portrait {
+        width: 100px;
+        height: 100px;
+    }
+
+    .todayscat__name,
+    .todayscat__weight {
+        font-size: 12pt;
+        font-weight: bold;
+        text-align: center;
+        margin:0;
+        padding:5px;
+    }
+    
+}
+
+/* Very small phones */
+@media (min-width: 150px) { 
+    .todayscat__portrait {
+        width: 125px;
+        height: 125px;
+    }
+
+    .todayscat__name {
+        padding-top: .75em;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 300px) { 
+    .todayscat__portrait {
+        width: 275px;
+        height: 275px;
+    }
+
+    .todayscat__name,
+    .todayscat__weight {
+        font-size: 14pt;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+    .todayscat__portrait {
+        width: 400px;
+        height: 400px;
+    }
+
+    .todayscat__name,
+    .todayscat__weight {
+        font-size: 16pt;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .todayscat__portrait {
+        width: 275px;
+        height: 275px;
+    }
+
+    .todayscat__name,
+    .todayscat__weight {
+        font-size: 16pt;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
 }

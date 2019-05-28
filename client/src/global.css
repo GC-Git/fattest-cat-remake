@@ -4,6 +4,7 @@ body {
     overflow-x: hidden;
 }
 
+.todayscat__todayscat,
 h1 {
     font-family: 'Roboto-700', sans-serif;
     color: #594949;
@@ -18,3 +19,4 @@ h1 {
     font-family: "Roboto", sans-serif;
     color: #D3E6F2;
 }
+
