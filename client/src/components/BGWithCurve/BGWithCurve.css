@@ -5,6 +5,7 @@
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
+    margin-bottom: 2.5em;
 }
 #bgwithcurve__bottomCurvePath,
 #bgwithcurve__topCurvePath {
@@ -32,6 +33,9 @@
     width: 100%;
 }
 
+#bgwithcurve__content {
+    margin-top: 1.5em;
+}
 
 
 /* Handles an issue with the bottom curve where the content section would clip into the curve image on small screen sizes. */
