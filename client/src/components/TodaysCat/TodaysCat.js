@@ -11,12 +11,15 @@ export default class TodaysCat extends React.Component {
                 className="todayscat__portrait"
                 image={this.props.cat.img} 
                 />
-                <p className="todayscat__name">
-                    {this.props.cat.name}
-                </p>
-                <p className="todayscat__weight">
-                    {this.props.cat.weight} lbs
-                </p>
+                <div className="todayscat__label">
+                    <p className="todayscat__name">
+                        {this.props.cat.name}
+                    </p>
+                    <p className="todayscat__weight">
+                        {this.props.cat.weight} lbs                    
+                    </p>
+                </div>
+                
             </div>
         )
     }

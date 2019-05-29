@@ -3,11 +3,26 @@ import { Fetcher, TodaysCat } from "../../components"
 import './Home.css'
 
 export default class Home extends React.Component {
+
+    constructor(props){
+        super(props)
+        this.state = {
+            today: new Date(),
+            monthNames: ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December" ]
+        }
+    }
+
     render() {
         return (
             <React.Fragment>
-                {/* TODO: Style this */}
-                <h2 style={{paddingTop: "1.5em", color: "black"}}>{new Date().toLocaleString()}</h2>
+                {/* <h2 className="homepage__header">{
+                    this.state.monthNames[this.state.today.getMonth()] +
+                    " " +
+                    this.state.today.getDay() +
+                    ", " +
+                    this.state.today.getFullYear() 
+                } </h2> */}
 
                 <div className="homepage__homepage">
                     <Fetcher url="/api/fatcat" propName="cat">

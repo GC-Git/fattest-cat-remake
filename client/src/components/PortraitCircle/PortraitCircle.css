@@ -2,6 +2,7 @@
     position: relative;
     overflow: hidden;
     border-radius: 50%;
+    transition: 0;
 }
 
 .portraitcircle__image {
@@ -10,4 +11,5 @@
     margin-left: -25%;
     height: 100%;
     width: auto;
+    transition: 0;
 }

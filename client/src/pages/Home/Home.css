@@ -16,6 +16,12 @@
     .homepage__todays_cat {
         padding-bottom: 1em;
     }
+
+    .homepage__header {
+        text-align: center;
+        font-size: 12pt;
+        margin-top: 2pt;
+    }
 }
 
 /* Very small phones */
@@ -27,26 +33,35 @@
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 300px) { 
-    
+    .homepage__header {
+        font-size: 16pt;
+        margin-top: 1em;   
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
+    .homepage__header {
+        font-size: 18pt;
+    }
 
+    .homepage__homepage {
+        margin-top: 14vh;
+    }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
     .homepage__homepage {
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
     }
-}
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { 
-
 }
 
 /* Extra large devices (large desktops, 1200px and up) */

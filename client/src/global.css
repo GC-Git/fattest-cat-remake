@@ -4,6 +4,8 @@ body {
     overflow-x: hidden;
 }
 
+
+.homepage__header,
 .todayscat__todayscat,
 h1 {
     font-family: 'Roboto-700', sans-serif;

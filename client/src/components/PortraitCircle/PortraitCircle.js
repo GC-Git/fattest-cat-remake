@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './PortraitCircle.css'
 
-export default class TodaysCat extends React.Component {
+export default class PortraitCircle extends React.Component {
     render() {
         return (
             <div 
@@ -22,7 +22,7 @@ export default class TodaysCat extends React.Component {
     }
 }
 
-TodaysCat.propTypes = {
+PortraitCircle.propTypes = {
     image: PropTypes.string,
     size: PropTypes.string
 }
