@@ -12,8 +12,6 @@ export default class BGWithCurve extends React.Component {
             <div id="bgwithcurve__bgwithcurve">
                 {/* Svg with top curve */}
 
-                {/* TODO: Oh gurl */}
-                {/* <img src={require('./TopCurve.svg')} /> */}
                 <svg 
                 id="bgwithcurve__topCurveSvg" 
                 xmlns="http://www.w3.org/2000/svg"   
