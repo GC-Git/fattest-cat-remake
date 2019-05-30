@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Nav } from './components'
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 import Pages from './pages'
 import './global.css'
 
