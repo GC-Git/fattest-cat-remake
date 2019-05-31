@@ -38,7 +38,7 @@ function fatCatDateRange(req, res) {
 
                 let sortedCatsArray = sortObjArrByProp(cats, 'date')
 
-                res.send(sortedCatsArray)
+                res.send(sortedCatsArray.data)
             })
 
     } catch (err) {
