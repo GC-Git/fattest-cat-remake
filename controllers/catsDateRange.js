@@ -31,7 +31,6 @@ function catsDateRange(req, res) {
             .exec((err, cats) => {
                 if(err){console.error(err);}
 
-                // Set all dates to the beggining of the day
                 for (cat of cats) {
                     cat.date = dayjs(cat.date).startOf('day').valueOf();
                 }

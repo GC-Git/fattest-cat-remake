@@ -3,22 +3,30 @@ let dayjs = require('dayjs')
 let sortObjArrByProp = require('../helpers/sortObjArrByProp')
 
 function fatCatDateRange(req, res) {
-
-    console.log('Getting /api/fatcat/range/:dateStart/:dateEnd')
-
     try {
+
+        // Type checking the date.
         if (!dayjs(req.params.date).isValid()) {
             res.send('Invalid date')
             return;
         }
 
+        // Getting the number of milliseconds since 1970
+        // TODO: Should we use endOf() for the endDate?
         const startDate = dayjs(req.params.dateStart).startOf('day').valueOf()
         const endDate = dayjs(req.params.dateEnd).startOf('day').valueOf()
 
+        // Flip startDate and endDate if they are in the wrong order
         if (startDate > endDate) {
-            res.send('Start date cannot come after end date.')
+            let buffer = startDate
+            startDate = endDate
+            endDate = buffer
         }
 
+        console.log("Start Date: " + startDate)
+        console.log("End Date: " + endDate)        
+
+        // Get the fattest cats of the day within the date range. 1 per day.
         db.FatCat
             .find({
                 date: {
@@ -31,18 +39,17 @@ function fatCatDateRange(req, res) {
             .exec((err, cats) => {
                 if(err){console.error(err);}
 
-                // Set all dates to the beggining of the day
                 for (cat of cats) {
                     cat.date = dayjs(cat.date).startOf('day').valueOf();
                 }
 
+                // We sort the array of cat entries by date
                 let sortedCatsArray = sortObjArrByProp(cats, 'date')
 
-                res.send(sortedCatsArray.data)
+                res.send(sortedCatsArray)
             })
-
+            return
     } catch (err) {
-        console.log("ERROR GETTING /api/fatcat/range/:dateStart/:dateEnd")
         console.error(err)
     }
 
