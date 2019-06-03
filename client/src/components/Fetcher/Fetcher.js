@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 // This component will display a Material UI CircularProgress component until the fetch is complete, then it will show the child component with the data placed into the childs [propName] prop. This lets you customize which prop will receive the data.
 //TODO: Handle missing props
 /** USAGE
- * <Fetcher url="/api/fatcat" propName="cat"> 
+ * <Fetcher url="/api/fatcat" propName="cat" dataHandler={someFunction}> 
  *    <Child />
  * </Fetcher>
  * 
@@ -26,6 +26,11 @@ class Fetcher extends Component {
     fetch(this.props.url)
       .then(response => response.json())
       .then((fetcherData) => {
+        
+        if(this.props.dataHandler){
+          fetcherData = this.props.dataHandler(fetcherData)
+        } 
+
         this.setState({fetcherData, isFetching: false})
       })
   }
