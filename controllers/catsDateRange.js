@@ -12,9 +12,18 @@ function catsDateRange(req, res) {
             return;
         }
 
-        const startDate = dayjs(req.params.dateStart).startOf('day').valueOf()
-        const endDate = dayjs(req.params.dateEnd).startOf('day').valueOf()
+        // Getting the number of milliseconds since 1970
+        // TODO: Should we use endOf() for the endDate?
+        let startDate = dayjs(req.params.dateStart).startOf('day').valueOf()
+        let endDate = dayjs(req.params.dateEnd).startOf('day').valueOf()
 
+        // Flip startDate and endDate if they are in the wrong order
+        if (startDate > endDate) {
+            let buffer = startDate
+            startDate = endDate
+            endDate = buffer
+        } 
+        
         if (startDate > endDate) {
             res.send('Start date cannot come after end date.')
         }

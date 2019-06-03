@@ -13,18 +13,15 @@ function fatCatDateRange(req, res) {
 
         // Getting the number of milliseconds since 1970
         // TODO: Should we use endOf() for the endDate?
-        const startDate = dayjs(req.params.dateStart).startOf('day').valueOf()
-        const endDate = dayjs(req.params.dateEnd).startOf('day').valueOf()
+        let startDate = dayjs(req.params.dateStart).startOf('day').valueOf()
+        let endDate = dayjs(req.params.dateEnd).startOf('day').valueOf()
 
         // Flip startDate and endDate if they are in the wrong order
         if (startDate > endDate) {
             let buffer = startDate
             startDate = endDate
             endDate = buffer
-        }
-
-        console.log("Start Date: " + startDate)
-        console.log("End Date: " + endDate)        
+        }     
 
         // Get the fattest cats of the day within the date range. 1 per day.
         db.FatCat
@@ -49,6 +46,7 @@ function fatCatDateRange(req, res) {
                 res.send(sortedCatsArray)
             })
             return
+            
     } catch (err) {
         console.error(err)
     }

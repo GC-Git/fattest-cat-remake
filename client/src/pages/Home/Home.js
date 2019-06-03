@@ -9,8 +9,21 @@ export default class Home extends React.Component {
         this.state = {
             today: new Date(),
             monthNames: ["January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December" ]
+            "July", "August", "September", "October", "November", "December" ],
+            catData: null,
         }
+    }
+
+    componentDidMount() {
+        this.loadData();
+    }
+
+    loadData() {
+        fetch('/api/fatcat')
+            .then(response => response.json())
+            .then((fetcherData) => {
+                
+            })
     }
 
     render() {

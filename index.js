@@ -24,19 +24,30 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 // ===========================
 //           ROUTES
-// TODO: Separate out into routes folder or file
 // ===========================
 app.get('/api/fatcat', controllers.fatCatToday)
-app.get('/api/fatcat/:date', controllers.fatCatDate)
+app.get('/api/fatcat/:date', controllers.fatCatDate) 
 app.get('/api/fatcat/range/:dateStart/:dateEnd', controllers.fatCatDateRange)
-app.get('/api/cats/day/:date', controllers.catsDate)
-app.get('/api/cats/range/:dateStart/:dateEnd', controllers.catsDateRange)
-app.get('/api/cats', controllers.catsToday)
-app.get('/api/cats/week', controllers.catsThisWeek)
-app.get('/api/catId/:id', controllers.catId)
 
-// The "catchall" handler: for any request that doesn't match the one above, send back React's index.html file where it will do its own in app routing
+// TODO: allCats route will make this redundant. 
+app.get('/api/cats', controllers.catsToday)
+app.get('/api/cats/:date', controllers.catsDate)
+app.get('/api/cats/range/:dateStart/:dateEnd', controllers.catsDateRange)
+// app.get('/api/cats/week', controllers.catsThisWeek)
+
+// TODO: app.get('/api/allCats', controllers.allCatsToday)
+// TODO: app.get('/api/allCats/:date', controllers.allCatsDate)
+// TODO: app.get('/api/allCats/range/:dateStart/:dateEnd', controllers.allCatsDateRange)
+
+app.get('/api/catId/:id', controllers.catId)
+// TODO: app.get('/api/catId/:id/:date', controllers.catIdDate)
+// TODO: app.get('/api/catId/:id/range/:dateStart/:dateEnd', controllers.catIdDateRange)
+
+// The "catchall" handler: If they aren't looking for the API, we'll send them the client instead.
 app.get('/*', controllers.index);
   
+
+
+// ===== START APP =====
 app.listen(port);
 console.log('Listening on port: ' + port)
