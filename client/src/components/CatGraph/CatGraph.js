@@ -7,13 +7,30 @@ import './CatGraph.css'
 export default class CatGraph extends React.Component {
 
     // Returns the passed in maximum for the Y axis unless the largest value is bigger than the max, in which case it returns the largest value + 5
-    getSuggestedMax(yAxisMax = 30){
+    getSuggestedMax(yAxisMax = 25){
         let maxWeight = Math.max.apply(null, this.props.data)
 
         if (maxWeight > yAxisMax){
             return maxWeight + 5
         } else {
             return yAxisMax
+        }
+    }
+
+    getSuggestedMin(yAxisMin = 15){
+        let minWeight = Math.min.apply(null, this.props.data)
+
+        if (minWeight < yAxisMin){
+
+            if(minWeight <= 5){
+                return 0;
+            } else {
+                return minWeight - 5
+            }
+
+            
+        } else {
+            return yAxisMin
         }
     }
 
@@ -27,7 +44,7 @@ export default class CatGraph extends React.Component {
                     yAxes: [{
                         display: true,
                         ticks: {
-                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                            suggestedMin: this.getSuggestedMin(),    // minimum will be 0, unless there is a lower value.
                             suggestedMax: this.getSuggestedMax() 
                         }
                     }]
