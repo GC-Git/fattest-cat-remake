@@ -9,5 +9,6 @@ import Testimonial from './Testimonial/Testimonial'
 import Fetcher from './Fetcher/Fetcher'
 import TodaysCat from './TodaysCat/TodaysCat'
 import PortraitCircle from './PortraitCircle/PortraitCircle'
+import CatGraph from './CatGraph/CatGraph'
 
-export { Nav, Hero, BGWithCurve, InfoCard, InfoCardCollection, Testimonial, Fetcher, TodaysCat, PortraitCircle }
+export { Nav, Hero, BGWithCurve, InfoCard, InfoCardCollection, Testimonial, Fetcher, TodaysCat, PortraitCircle, CatGraph }

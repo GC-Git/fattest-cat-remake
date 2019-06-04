@@ -1,7 +1,6 @@
-
-
 .homepage__weekly_cats {
-    background-color: grey;
+    position: relative;
+    width: 70%;
 }
 
 
@@ -57,6 +56,10 @@
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
+    .homepage__weekly_cats {
+        width: 30%;
+    }
+
     .homepage__homepage {
         flex-direction: row;
         justify-content: space-around;
