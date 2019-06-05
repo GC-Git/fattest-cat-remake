@@ -13,22 +13,26 @@ class App extends Component {
       links: [
         {
           path: "/",
+          externalPath: null,
           name: "Home",
           component: Pages.Home
         },
         {
           path: "/about",
+          externalPath: null,
           name: "About",
           component: Pages.About
         },
         {
-          path: "/donate",
+          path: null,
+          externalPath: "https://www.oregonhumane.org/donate/",
           name: "Donate",
-          component: Pages.Donate
+          component: null
         },
         {
           // We cant use API for this page, as the actual api uses it
           path: "/developers",
+          externalPath: null,          
           name: "API",
           component: Pages.Api
         }
@@ -46,10 +50,10 @@ class App extends Component {
           // Loop through each link, place a Route element for each one.
           this.state.links.map((item, index)=> {
             // Root path needs the 'exact' attribute to avoid showing up on other pages.
-            if(item.path ==="/"){return (
+            if(item.path ==="/"){ return (
               <Route exact path={item.path} component={item.component} />
             )}
-            
+
             return (
               <Route path={item.path} component={item.component} />
             )
