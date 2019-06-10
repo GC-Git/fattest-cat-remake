@@ -18,6 +18,10 @@ export default class TodaysCat extends React.Component {
                     <p className="todayscat__weight">
                         {this.props.cat.weight} lbs                    
                     </p>
+                    <br />
+                    <a className="todayscat__details" target="_blank" rel="noopener noreferrer" href={"https://www.oregonhumane.org/adopt/details/" + this.props.cat.id}>
+                        Details
+                    </a>
                 </div>
                 
             </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Fetcher, TodaysCat, CatGraph } from "../../components"
+import { TodaysCat, CatGraph } from "../../components"
 import './Home.css'
 
 export default class Home extends React.Component {

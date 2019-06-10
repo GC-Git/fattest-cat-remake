@@ -14,6 +14,24 @@
         margin:0;
         padding:5px;
     }
+
+    .todayscat__details {
+        font-size: 10pt;
+        text-decoration: none;
+        text-align: center;
+        font-weight: bold;
+        margin-left: 28%;
+        color: #948181;
+    }
+    
+    .todayscat__details:hover {
+        color: #a59e9e;
+    }
+
+    br {
+        display: none;
+    }
+
     
 }
 
@@ -48,7 +66,16 @@
 
     }
 
-    
+    .todayscat__details {
+        font-size: 12pt;
+        margin-left: inherit;
+    }
+
+    br {
+        display: inherit;
+        line-height: 150%;    
+    }
+
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -67,18 +94,21 @@
     .todayscat__weight {
         font-size: 16pt;
     }
+
+    .todayscat__details {
+        font-size: 14pt;
+    }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     .todayscat__name,
     .todayscat__weight {
-        font-size: 16pt;
+        font-size: 18pt;
     }
 
-    .todayscat__name,
-    .todayscat__weight {
-        font-size: 18pt;
+    .todayscat__details {
+        font-size: 16pt;
     }
 }
 
@@ -93,6 +123,7 @@
     .todayscat__weight {
         font-size: 20pt;
     }
+
 }
 
 /* Extra large devices (large desktops, 1200px and up) */

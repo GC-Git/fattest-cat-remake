@@ -80,7 +80,7 @@ export default class Nav extends React.Component {
                         if(item.externalPath){
                             return (
                                 <li>
-                                    <a href={item.externalPath}>{item.name}</a>
+                                    <a href={item.externalPath} target="_blank" rel="noopener noreferrer">{item.name}</a>
                                 </li>
                             )
                         }
