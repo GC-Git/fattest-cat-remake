@@ -18,24 +18,25 @@ export default class About extends React.Component {
                 <p style={{
                     fontSize: "28px",
                     alignText: "center",
-                    margin: "1.5em 1.5em 2.5em 1.5em"
+                    margin: "1.5em 2em 2.5em 2em",
+                    textAlign: 'justify'
                 }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    All the cats shown here are from the Oregon Humane Society and can be adopted via their website. Each morning, we get the freshest, fattest cats at OHS and display them here for your pleasure.
                 </p>
                 </BGWithCurve>
                 <Testimonial 
-                image={require('../../components/Testimonial/user_02.png')}
+                image={require('../../assets/Testimonial-001.svg')}
                 quote="Possibly the most pointless website I have ever made."
                 author="Gordon Delfel"
                 />  
                 <Testimonial 
                 reverse="true"
-                image={require('../../components/Testimonial/user_01.png')}
+                image={require('../../assets/Testimonial-003.svg')}
                 quote="MEOW MEOW MEOW MOEW MEOW MEOW MOW MOWWWWWW"
                 author="A stray cat"
                 />
                 <Testimonial 
-                image={require('../../components/Testimonial/user_03.png')}
+                image={require('../../assets/Testimonial-002.svg')}
                 quote="No thank you, I don't have any change."
                 author="Some stranger"
                 />  

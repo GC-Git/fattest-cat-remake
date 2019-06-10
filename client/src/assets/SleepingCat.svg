@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="305.991" height="237.43" viewBox="0 0 305.991 237.43">
+  <g id="SleepingCat" transform="translate(-38.276 -66.684)">
+    <g id="Body">
+      <g id="BR_Foot" transform="translate(225.096 248.226) rotate(68)" fill="#a79a9a" stroke="#594949" stroke-width="3">
+        <ellipse cx="18.983" cy="27.611" rx="18.983" ry="27.611" stroke="none"/>
+        <ellipse cx="18.983" cy="27.611" rx="17.483" ry="26.111" fill="none"/>
+      </g>
+      <path id="Tail" d="M0,151.636c3.623-3.472,11.245,17.942,15.217,13.616C50.309,127.073,61.779,58.761,61.271,41.508,62-23.027,13.861-1.064,35.294,31.925S0,151.636,0,151.636Z" transform="translate(79.81 222.35) rotate(-130)" fill="#a79a9a" stroke="#594949" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      <g id="FL_Foot" transform="matrix(0.899, 0.438, -0.438, 0.899, 314.204, 177.767)" fill="#a79a9a" stroke="#594949" stroke-width="3">
+        <ellipse cx="16.724" cy="32.504" rx="16.724" ry="32.504" stroke="none"/>
+        <ellipse cx="16.724" cy="32.504" rx="15.224" ry="31.004" fill="none"/>
+      </g>
+      <g id="Body-2" data-name="Body" transform="translate(150.524 79.383)" fill="#a79a9a" stroke="#594949" stroke-width="3">
+        <circle cx="91.462" cy="91.462" r="91.462" stroke="none"/>
+        <circle cx="91.462" cy="91.462" r="89.962" fill="none"/>
+      </g>
+      <g id="BL_Foot" transform="translate(136.183 222.689) rotate(68)" fill="#a79a9a" stroke="#594949" stroke-width="3">
+        <ellipse cx="18.983" cy="27.611" rx="18.983" ry="27.611" stroke="none"/>
+        <ellipse cx="18.983" cy="27.611" rx="17.483" ry="26.111" fill="none"/>
+      </g>
+    </g>
+    <g id="Head" transform="translate(111.939 125.619)">
+      <g id="Head-2" data-name="Head" transform="translate(0.037 14.54)" fill="#a79a9a" stroke="#594949" stroke-width="3">
+        <circle cx="69.028" cy="69.028" r="69.028" stroke="none"/>
+        <circle cx="69.028" cy="69.028" r="67.528" fill="none"/>
+      </g>
+      <g id="L_Ear" transform="translate(0 7.052) rotate(-8)">
+        <path id="Path_6" data-name="Path 6" d="M4.076,50.015s-14.043-70.128,10-44.3S45.691,39.568,45.691,39.568" transform="matrix(0.995, -0.105, 0.105, 0.995, 0, 4.776)" fill="#a79a9a" stroke="#594949" stroke-width="3"/>
+        <path id="Path_8" data-name="Path 8" d="M2.419,29.689S-5.917-11.939,8.358,3.39s18.764,20.1,18.764,20.1" transform="matrix(0.995, -0.105, 0.105, 0.995, 8.974, 18.767)" fill="#a79a9a" stroke="#594949" stroke-width="3"/>
+      </g>
+      <g id="Face" transform="translate(21.905 87.28)">
+        <g id="L_Eye" transform="translate(1.579) rotate(11)">
+          <line id="Eyebrow" x2="15.318" y2="2.834" transform="translate(0 0)" fill="none" stroke="#594949" stroke-linecap="round" stroke-width="3"/>
+          <line id="Eye" x2="8.703" y2="1.376" transform="translate(2.304 6.898)" fill="none" stroke="#594949" stroke-linecap="round" stroke-width="3"/>
+        </g>
+        <g id="R_Eye" transform="translate(43.772 12.339) rotate(14)">
+          <line id="Eyebrow-2" data-name="Eyebrow" x1="15.676" y2="2.473" transform="translate(0 0)" fill="none" stroke="#594949" stroke-linecap="round" stroke-width="3"/>
+          <line id="Eye-2" data-name="Eye" x1="8.947" y2="1.455" transform="translate(5.291 6.681)" fill="none" stroke="#594949" stroke-linecap="round" stroke-width="3"/>
+        </g>
+        <g id="Mouth_Nose" data-name="Mouth/Nose" transform="matrix(0.985, 0.174, -0.174, 0.985, 17.391, 31.59)">
+          <path id="Drool" d="M2.947,1.373C2.546,4-3.334,11.53,2.724,11.4S3.3-4.686,2.947,1.373Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 4.472, 11.277)" fill="#d3e6f2" stroke="#d3e6f2" stroke-width="1"/>
+          <path id="Thingy" d="M0,0V8.269" transform="translate(3.918 0.979)" fill="none" stroke="#594949" stroke-width="4"/>
+          <path id="Mouth" d="M6.738,0H0" transform="translate(0 9.621)" fill="none" stroke="#594949" stroke-linecap="round" stroke-width="4"/>
+          <path id="Nose" d="M0,3.233H3.844L1.86,0Z" transform="translate(5.826 3.233) rotate(180)" fill="none" stroke="#594949" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        </g>
+      </g>
+      <g id="L_Ear-2" data-name="L_Ear" transform="translate(98.072 23.79) rotate(13)">
+        <path id="Path_6-2" data-name="Path 6" d="M4.8,0s-16.044,70.338,10.5,44.252,34.9-34.2,34.9-34.2" transform="translate(49.932 55.027) rotate(-174)" fill="#a79a9a" stroke="#594949" stroke-width="3"/>
+        <path id="Path_8-2" data-name="Path 8" d="M2.852,0S-6.672,41.753,9.088,26.268,29.8,5.965,29.8,5.965" transform="translate(42.296 48.773) rotate(-174)" fill="#a79a9a" stroke="#594949" stroke-width="3"/>
+      </g>
+    </g>
+  </g>
+</svg>
