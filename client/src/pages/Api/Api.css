@@ -7,17 +7,25 @@
     .apiPage__endpoint_list_item {
         list-style: none;
         padding-top: 0.25em;
+        margin-bottom: 1.5em;
+        text-align: center;
     }    
-
-    .apiPage__header {
-        font-size: 12px;
-    }
 
     .apiPage__endpoint_link {
         text-decoration: none;
         color: inherit;
         font-size: 10pt;
+        color: #EBEEF0;
     }
+
+    .apiPage__endpoint_label {
+        font-size: 12pt;
+    }
+
+    .apiPage__header {
+        font-size: 12px;
+    }
+
 
     .apiPage__container {
         margin-top: 5vh;
@@ -37,6 +45,10 @@
         font-size: 12pt;
     }
 
+    .apiPage__endpoint_label {
+        font-size: 14pt;
+    }
+
     .apiPage__container {
         align-items: center;
     }
@@ -51,6 +63,10 @@
     .apiPage__endpoint_link {
         font-size: 14pt;
     }
+
+    .apiPage__endpoint_label {
+        font-size: 16pt;
+    }
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -59,9 +75,6 @@
         font-size: 20px;
     }
 
-    .apiPage__endpoint_link {
-        font-size: 14pt;
-    }
 }
 
 
@@ -73,5 +86,9 @@
 
     .apiPage__endpoint_link {
         font-size: 18pt;
+    }
+
+    .apiPage__endpoint_label {
+        font-size: 20pt;
     }
 }
